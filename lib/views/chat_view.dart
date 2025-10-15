@@ -15,12 +15,13 @@ class ChatView extends StatelessWidget{
             child: Padding(
               padding: EdgeInsetsDirectional.symmetric(horizontal: 10),
               child: ListView.builder(
-                itemCount: 20,
+                itemCount: 40,
                 itemBuilder: (context, index){
                   return index % 2 == 0
                     ? HerMessageBubbleView(
                       colorScheme: colorScheme,
-                          message: "Hola amorcito",
+                      urlImageBubble: "https://yesno.wtf/assets/yes/2.gif",
+                          //message: "Hola amorcito",
                         )
                       : MyMessageBubbleView(
                           colorScheme: colorScheme,

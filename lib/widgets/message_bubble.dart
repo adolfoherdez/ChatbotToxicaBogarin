@@ -18,10 +18,22 @@ class MessageBubble extends StatelessWidget{
       crossAxisAlignment: alignment,
       children: [
         Container(
-          decoration: BoxDecoration(color: colorBubble),
-          child: child,
+          decoration: BoxDecoration(
+            color: colorBubble,
+            borderRadius: BorderRadius.circular(20)
+            ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+            child: child,
+        ),
         )
+        const SizedBox(height: 10),
+
       ],
+      if (urlImageBubble != null)...[
+        ImageBubble(imageUrl: urlImageBubble!),
+        const SizedBox(height: 10,)
+      ]
     );
   }
 }
