@@ -14,10 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme(selectedColors: 2).theme(),
-      home: Scaffold(
-        appBar: AppBar(title: const Text('My ChatBot')),
-        body: const ChatScreen(),
-      )
+      home: const ChatScreen(),
     );
   }
 }

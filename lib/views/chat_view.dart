@@ -15,25 +15,24 @@ class ChatView extends StatelessWidget{
             child: Padding(
               padding: EdgeInsetsDirectional.symmetric(horizontal: 10),
               child: ListView.builder(
-                itemCount: 40,
-                itemBuilder: (context, index){
+                itemCount: 6,
+                itemBuilder: (context, index) {
                   return index % 2 == 0
-                    ? HerMessageBubbleView(
-                      colorScheme: colorScheme,
-                      urlImageBubble: "https://yesno.wtf/assets/yes/2.gif",
-                          //message: "Hola amorcito",
+                      ? HerMessageBubbleView(
+                          colorScheme: colorScheme,
+                          urlImageBubble:
+                              'https://yesno.wtf/assets/no/8-5e08abbe5aacd2cf531948145b787e9a.gif',
                         )
                       : MyMessageBubbleView(
                           colorScheme: colorScheme,
-                          message: "Hola mundo",
-                          );
-              }
-            )
-            )
+                          message: "Hola amor",
+                        );
+                },
+              ),
+            ),
           ),
-          //const Text('Hola mi vida hermosa, como estas?')
         ],
-      )
+      ),
     );
   }
 }
