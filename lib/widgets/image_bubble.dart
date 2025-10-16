@@ -1,4 +1,3 @@
-import 'package:chatsex_bogarin/widgets/message_bubble.dart';
 import 'package:flutter/material.dart';
 
 class ImageBubble extends StatelessWidget {

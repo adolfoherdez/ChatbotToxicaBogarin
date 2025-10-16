@@ -14,6 +14,7 @@ class ChatScreen extends StatelessWidget{
           backgroundImage: NetworkImage('https://generacionxbox.com/wp-content/uploads/2019/02/cortana-halo-infinite-generacionxbox.jpg'),
         ),
       ),
+      //const SizedBox(height: 5),
       body: ChatView(),
     );
   }

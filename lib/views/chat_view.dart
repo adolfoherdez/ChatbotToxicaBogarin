@@ -1,3 +1,4 @@
+import 'package:chatsex_bogarin/widgets/message_field_box.dart';
 import 'package:flutter/material.dart';
 import 'package:chatsex_bogarin/views/her_message_bubble_view.dart';
 import 'package:chatsex_bogarin/views/my_message_bubble_view.dart';
@@ -31,6 +32,8 @@ class ChatView extends StatelessWidget{
               ),
             ),
           ),
+          const MessageFieldBox(),
+          const SizedBox(height: 5),
         ],
       ),
     );

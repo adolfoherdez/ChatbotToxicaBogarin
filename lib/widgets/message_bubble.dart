@@ -18,7 +18,7 @@ class MessageBubble extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return Column(
-                  crossAxisAlignment: alignment,
+      crossAxisAlignment: alignment,
       children: [
         if (child != null) ...[
           Container(
