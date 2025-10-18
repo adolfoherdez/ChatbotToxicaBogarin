@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:chatsex_bogarin/widgets/message_bubble.dart';
+import 'package:chatsex_bogarin/presentation/widgets/message_bubble.dart';
 
 class HerMessageBubbleView extends StatelessWidget{
   final ColorScheme colorScheme;

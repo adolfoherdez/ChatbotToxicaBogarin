@@ -1,4 +1,4 @@
-import 'package:chatsex_bogarin/views/chat_view.dart';
+import 'package:chatsex_bogarin/presentation/views/chat_view.dart';
 import 'package:flutter/material.dart';
 
 class ChatScreen extends StatelessWidget{

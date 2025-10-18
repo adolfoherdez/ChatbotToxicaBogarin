@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:chatsex_bogarin/widgets/image_bubble.dart';
+import 'package:chatsex_bogarin/presentation/widgets/image_bubble.dart';
 
 class MessageBubble extends StatelessWidget{
   final CrossAxisAlignment alignment;
