@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
-class MessageFieldBox extends StatelessWidget{
-  const MessageFieldBox({super.key});
+class MessageFieldBox extends StatefulWidget{
+  final void Function(String) onvalue;
+  const MessageFieldBox({super.key, required this.onvalue});
 
+  @override
+  State<MessageFieldBox> createState() => _MessageFieldBoxState();
+}
+
+class _MessageFieldBoxState extends State<MessageFieldBox> {
   @override
   Widget build(BuildContext context) {
     final TextEditingController textController = TextEditingController();
@@ -14,6 +20,14 @@ class MessageFieldBox extends StatelessWidget{
       decoration: _customInputDecoration(
         colors: colors, 
         onSend: (){
+          final textValue = textController.value.text;
+          print(textController.value.text);
+          if(textValue.isNotEmpty){
+            
+            widget.onvalue(textValue);
+            textController.clear();
+            focusNode.requestFocus();
+          }
           print('quiere enviar el mensaje ${textController.text}');
           textController.clear();
           focusNode.requestFocus();
@@ -24,7 +38,7 @@ class MessageFieldBox extends StatelessWidget{
         focusNode.unfocus();
       },
       onFieldSubmitted: (value){
-        print('aqui un push locochon porque despues se enojan $value');
+        print('aqui un push locochon porque despues se enojan: $value');
         focusNode.requestFocus();
         textController.clear();
       }
@@ -40,8 +54,9 @@ class MessageFieldBox extends StatelessWidget{
       focusedBorder: _customOutlineInputBorder(colors.primaryContainer),
       hintText: "Escribe un mensaje",
       suffixIcon: IconButton(
-        onPressed: (){}, icon: const Icon(Icons.send),),
+        onPressed: onSend, icon: const Icon(Icons.send),),
     );
+
   OutlineInputBorder _customOutlineInputBorder (Color color) => 
     OutlineInputBorder(
       borderSide: BorderSide(color: color),
