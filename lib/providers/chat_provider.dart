@@ -1,4 +1,6 @@
 import 'package:chatsex_bogarin/domain/entities/message.dart';
+import 'package:chatsex_bogarin/infrastructure/datasource/get_yes_no_answer.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 class ChatProvider extends ChangeNotifier{
@@ -28,6 +30,8 @@ class ChatProvider extends ChangeNotifier{
   Future<void> sendMessage(String message) async{
     final newMessage = Message(text: message, fromWho: FromWho.me, imageUrl: "",);
     messageList.add(newMessage);
+    final response = await GetYesNoAnswer().getAnswer();
+    print(response);
     notifyListeners();
   }
 }
