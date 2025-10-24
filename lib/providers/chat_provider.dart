@@ -4,34 +4,29 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 class ChatProvider extends ChangeNotifier{
-  final List<Message> messageList=[
-    Message(
-      text: "Hola, como estas?", 
-      imageUrl: "https://yesno.wtf/assets/no/8-5e08abbe5aacd2cf531948145b787e9a.gif", 
-      fromWho: FromWho.hers,
-    ),
-    Message(
-      text: "hola, me amas?", 
-      fromWho: FromWho.me,
-      imageUrl: "", 
-      ),
-    Message(
-      text: "Al cienon viejon", 
-      fromWho: FromWho.hers,
-      imageUrl: "https://yesno.wtf/assets/no/8-5e08abbe5aacd2cf531948145b787e9a.gif",
-      ),
-    Message(
-      text: "Algo bien padrino", 
-      fromWho: FromWho.me,
-      imageUrl: "",
-      ),
-  ];
+  final ScrollController scrollController = ScrollController();
 
-  Future<void> sendMessage(String message) async{
-    final newMessage = Message(text: message, fromWho: FromWho.me, imageUrl: "",);
-    messageList.add(newMessage);
+  final List<Message> messagesList = [];
+
+  Future<void> sendMessage(String message) async {
+    final newMessage = Message(text: message, fromWho: FromWho.me, imageUrl: '');
+    await setMessagesList(newMessage);
     final response = await GetYesNoAnswer().getAnswer();
-    print(response);
+    await setMessagesList(response);
+  }
+
+  Future<void> setMessagesList(Message message) async {
+    messagesList.add(message);
     notifyListeners();
+    moveScrollToBottom();
+  }
+
+  Future<void> moveScrollToBottom() async {
+    await Future.delayed(const Duration(milliseconds: 300));
+    scrollController.animateTo(
+      scrollController.position.maxScrollExtent,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
+    );
   }
 }

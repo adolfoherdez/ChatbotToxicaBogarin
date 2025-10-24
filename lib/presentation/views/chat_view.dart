@@ -20,26 +20,29 @@ class ChatView extends StatelessWidget{
             child: Padding(
               padding: EdgeInsetsDirectional.symmetric(horizontal: 10),
               child: ListView.builder(
-                itemCount: chatProvider.messageList.length,
-                //itemCount: 6,
+                itemCount: chatProvider.messagesList.length,
                 itemBuilder: (context, index) {
-                  return chatProvider.messageList[index].fromWho == FromWho.hers
+                  return chatProvider.messagesList[index].fromWho == FromWho.hers
                       ? HerMessageBubbleView(
                           colorScheme: colorScheme,
-                          urlImageBubble:
-                          chatProvider.messageList[index].imageUrl!,
-                              //'https://yesno.wtf/assets/no/8-5e08abbe5aacd2cf531948145b787e9a.gif',
+                          message: chatProvider.messagesList[index], urlImageBubble: '',
                         )
                       : MyMessageBubbleView(
                           colorScheme: colorScheme,
-                          message: chatProvider.messageList[index].text,
+                          message: chatProvider.messagesList[index].text,
                         );
                 },
               ),
             ),
           ),
-          MessageFieldBox(
-            onvalue: (String value) => chatProvider.sendMessage(value),
+          Padding(
+            padding: EdgeInsetsDirectional.symmetric(
+              horizontal: 10,
+              vertical: 10,
+            ),
+            child: MessageFieldBox(
+              onvalue: (String value) => chatProvider.sendMessage(value),
+          ),
           ),
           const SizedBox(height: 5),
         ],
