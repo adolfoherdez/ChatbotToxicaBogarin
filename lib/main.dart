@@ -16,9 +16,9 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [ChangeNotifierProvider(create: (_) => ChatProvider())],
       child: MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: AppTheme(selectedColors: 2).theme(),
-      home: const ChatScreen(),
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme(selectedColors: 2).theme(),
+        home: const ChatScreen(),
       ),
     );
   }

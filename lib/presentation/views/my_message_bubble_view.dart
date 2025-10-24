@@ -15,7 +15,7 @@ class MyMessageBubbleView extends StatelessWidget{
     return MessageBubble(
       alignment: CrossAxisAlignment.end,
       colorBubble: colorScheme.primary,
-      child: Text(message, style: TextStyle(color: colorScheme.onSecondary)),
-      );
+      child: Text(message, style: TextStyle(color: colorScheme.onPrimary)),
+    );
   }
 }

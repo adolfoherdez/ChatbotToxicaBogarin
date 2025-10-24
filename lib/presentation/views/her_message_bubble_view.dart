@@ -4,12 +4,10 @@ import 'package:chatsex_bogarin/domain/entities/message.dart';
 
 class HerMessageBubbleView extends StatelessWidget{
   final ColorScheme colorScheme;
-  final String urlImageBubble;
-  final  Message message;
+  final Message message;
   const HerMessageBubbleView({
     super.key,
     required this.colorScheme,
-    required this.urlImageBubble,
     required this.message,
   });
 
@@ -22,7 +20,7 @@ class HerMessageBubbleView extends StatelessWidget{
         message.text,
         style: TextStyle(color: colorScheme.onSecondary),
       ),
-      urlImageBubble: urlImageBubble,
-      );
+      urlImageBubble: message.imageUrl!,
+    );
   }
 }

@@ -3,16 +3,16 @@ import 'package:chatsex_bogarin/infrastructure/dto/yes_no_answer.dart';
 import 'package:dio/dio.dart';
 
 class GetYesNoAnswer {
-  final _dio = Dio(BaseOptions(baseUrl: 'https://yesno.wtf'));
+  final Dio _dio = Dio(BaseOptions(baseUrl: 'https://yesno.wtf'));
 
-  Future<Message> getAnswer()async{
+  Future<Message> getAnswer() async {
     final response = await _dio.get('/api');
     print(response.data);
     final YesNoAnswer yesNoAnswer = YesNoAnswer.fromJson(response.data);
     return Message(
-      //text: yesNoAnswer.answer,
-      text: yesNoAnswer.answer == 'yes' ? 'Si' : 'No',
+      text: yesNoAnswer.answer == 'yes' ? 'Sí' : 'No',
       imageUrl: yesNoAnswer.image,
-      fromWho: FromWho.hers);
+      fromWho: FromWho.hers,
+    );
   }
 }
